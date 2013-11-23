@@ -252,8 +252,8 @@ hci_event_handler(void *pRetParams, unsigned char *from, unsigned char *fromlen)
 		{
 
 			pucReceivedData = (tSLInformation.pucReceivedData);
-			Serial.println(F("What is pucReceivedData?\n\r"));
-			Serial.println(*pucReceivedData);
+			// Serial.println(F("What is pucReceivedData?\n\r"));
+			// Serial.println(*pucReceivedData);
 			if (*pucReceivedData == HCI_TYPE_EVNT)
 			{
 				// Event Received
@@ -475,8 +475,8 @@ hci_event_handler(void *pRetParams, unsigned char *from, unsigned char *fromlen)
 				// Serial.println(F(HCI_DATA_HEADER_SIZE));
 				// Serial.println(F("ucArgsize"));
 				// Serial.println(F(ucArgsize));
-				Serial.println(F("usLength"));
-				Serial.println(usLength);
+				// Serial.println(F("usLength"));
+				// Serial.println(usLength);
 				memcpy(pRetParams, pucReceivedParams + HCI_DATA_HEADER_SIZE + ucArgsize,
 							 usLength - ucArgsize);
 
