@@ -1070,6 +1070,7 @@ simple_link_send(long sd, const void *buf, long len, long flags,
 	}
 	
 	// Initiate a HCI command
+	digitalWrite(7, HIGH);
 	hci_data_send(opcode, ptr, uArgSize, len,(unsigned char*)to, tolen);
         
          if (opcode == HCI_CMND_SENDTO)
