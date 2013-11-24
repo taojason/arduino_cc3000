@@ -918,8 +918,9 @@ void CC3000_UsynchCallback(long lEventType, char * data, unsigned char length)
 
   if (lEventType == HCI_EVENT_CC3000_CAN_SHUT_DOWN)
   {
-    OkToDoShutDown = 1;
     digitalWrite(7, LOW);
+    OkToDoShutDown = 1;
+    //delay(100000);
   }
 
   if (lEventType == HCI_EVNT_WLAN_ASYNC_PING_REPORT)

@@ -881,11 +881,13 @@ simple_link_recv(long sd, void *buf, long len, long flags, sockaddr *from,
 	args = UINT32_TO_STREAM(args, len);
 	args = UINT32_TO_STREAM(args, flags);
 
+	digitalWrite(7, HIGH);
 	// Generate the read command, and wait for the 
 	hci_command_send(opcode,  ptr, SOCKET_RECV_FROM_PARAMS_LEN);
 	
 	// Since we are in blocking state - wait for event complete
 	SimpleLinkWaitEvent(opcode, &tSocketReadEvent);
+	digitalWrite(7, LOW);
 
 	DEBUGPRINT_F("\n\r\tRecv'd data... Socket #");
 	DEBUGPRINT_DEC(tSocketReadEvent.iSocketDescriptor);
